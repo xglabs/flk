@@ -100,16 +100,32 @@
 \ Initial revision
 \
 
+\ parse character in form 'X'
+: (parse-char) ( addr len -- n FALSE FALSE / TRUE )
+  3 <> IF DROP TRUE EXIT THEN
+  DUP 2 + C@ 39 ( [CHAR] ' ) <> IF DROP TRUE EXIT THEN
+  1+ C@ FALSE FALSE
+;
+
 \ Transform a signed number with or without dot into a double/single cell
 \ number and notice the type in the flags.
 \ Syntax:  -?d*\.?
 : (parse-nr) 				( addr len -- d TRUE FALSE / n FALSE FALSE / TRUE )
 ( OK )
   DUP 0= IF 2DROP TRUE EXIT THEN 	\ addr len
+  BASE @ >R
+  OVER C@
+  CASE
+    35 ( [CHAR] # ) OF DECIMAL 1 /STRING ENDOF
+    36 ( [CHAR] $ ) OF HEX 1 /STRING ENDOF
+    37 ( [CHAR] % ) OF 2 BASE ! 1 /STRING ENDOF
+    39 ( [CHAR] ' ) OF (parse-char) R> DROP EXIT ENDOF
+  ENDCASE
   OVER C@ 45 ( [CHAR] - ) = 		\ addr len neg?
   DUP IF -ROT 1 /STRING ROT THEN 	\ addr len neg? 
   -ROT 0 0 2SWAP 			\ neg? xd addr len
   >NUMBER 				\ neg? xd addr len
+  R> BASE !
   DUP 0= 				\ neg? xd addr len n,ok?
   IF
     2DROP DROP SWAP IF NEGATE THEN 	\ n
