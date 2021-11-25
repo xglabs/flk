@@ -222,6 +222,10 @@ CREATE do-state 11 ALLOT
   -ROT 					\ f1 lo x
   > INVERT AND ;
 
+: BOUNDS ( n1 n2 -- n3 n4 )
+  OVER + SWAP
+;
+
 \ Convert a lower case letter to upper case.
 : >UPPER 				( char -- char2)
 ( OK )

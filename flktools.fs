@@ -161,6 +161,14 @@
 ( OK )
 ; IMMEDIATE 
 
+: [DEFINED]
+  BL WORD FIND NIP 0<>
+;
+
+: [UNDEFIED]
+  BL WORD FIND NIP 0=
+;
+
 \ See standard.
 : DUMP 					( addr u -- )
 ( OK )
