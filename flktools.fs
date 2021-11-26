@@ -165,7 +165,7 @@
   BL WORD FIND NIP 0<>
 ;
 
-: [UNDEFIED]
+: [UNDEFINED]
   BL WORD FIND NIP 0=
 ;
 
