@@ -67,6 +67,7 @@ S" flkenv.fs" INCLUDED
 S" flktools.fs" INCLUDED  
 S" flkfloat.fs" INCLUDED
 S" flklib.fs" INCLUDED
+S" disasm.fs" INCLUDED
 
 S" flk" SAVE-SYSTEM
 S" default.flk" SAVE-SYSTEM

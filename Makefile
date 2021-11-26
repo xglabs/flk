@@ -125,8 +125,10 @@
 # 
 
 # a 32-bit Forth system
-FORTH32=vfxlin
+#FORTH32=vfxlin32
 #FORTH32=gforth -e
+#FORTH32=sf
+FORTH32=lxf
 
 # Change to match your system.
 INSTALL_LIBDIR=/usr/local/lib/flk
@@ -183,7 +185,7 @@ SRCS=flkasm.fs flkdict.fs flkenv.fs flkexcep.fs flkhcomp.fs flkhigh.fs \
      flkinput.fs flkio.fs flkkern.fs flkkey_unix.fs flkmeta.fs \
      flkprim.fs flksys.fs flktcomp.fs flkstring.fs extend.fs flktools.fs \
      flkfloat.fs array.fs defer.fs flklib.fs flklevel2.fs flkopt.fs \
-     flktopt.fs flkhiex.fs flkcfstack.fs
+     flktopt.fs flkhiex.fs flkcfstack.fs disasm.fs
 
 RCSfiles=${SRCS} Makefile ${SRCS_C} f flkXforms.fs flkcontrol.fs 
 
