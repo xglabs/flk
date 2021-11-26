@@ -943,13 +943,12 @@ PREVIOUS PREVIOUS
     @
   REPEAT DROP CR ;
 
-\ See standard.
-: SEE 					( "<spaces>name" -- )
+: SHOW 					( "<spaces>name" -- )
 ( OK )
   ' DUP >FN @ CELL+ $COUNT 		\ xt addr len
   2DUP S" ..console.." COMPARE 0= IF
    2DROP >NAME COUNT TYPE 
-   ."  was defined on the console. No SEE-ing possible." CR
+   ."  was defined on the console. No SHOW-ing possible." CR
   ELSE
     ROT >DL @ 
     [ ALSO EDITOR ] VIEW [ PREVIOUS ] 
