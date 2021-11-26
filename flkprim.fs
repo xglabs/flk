@@ -581,6 +581,12 @@ c: R@
   0 [esp] free0 mov,
   0 free>tos ;
 
+c: RDROP
+  regalloc-reset
+  req-free
+  free0 pop, 
+  0 reg-free ;
+
 \ See standard.
 p: LSHIFT 				( x1 u -- x2 )
 ( OK )
