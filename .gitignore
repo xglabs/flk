@@ -1,1 +1,7 @@
 .depends
+flk
+flk.flk
+flk.o
+flkkern
+default.flk
+srcdir.fs
