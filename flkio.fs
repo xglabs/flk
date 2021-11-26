@@ -303,4 +303,7 @@ CREATE ((pnobuf)) ((pnolen)) CHARS ALLOT
 : q-TYPE ." ``" TYPE ." ''" ;
 ( OK )
 
-
+\ print value in hex
+: HEX. ( n -- )
+  BASE @ HEX SWAP U. BASE ! 
+;
